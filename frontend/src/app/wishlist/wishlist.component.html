@@ -1,0 +1,9 @@
+<div class="wishlist">
+  <app-navbar></app-navbar>
+  <h2 class="wishlist__title">My Breweries Wishlist</h2>
+  <ul class="whishlist__items">
+    <ng-container *ngFor="let breweryItem of myBreweries; let i=index">
+      <app-brewery-item [breweryItem]="breweryItem"></app-brewery-item>
+    </ng-container>
+  </ul>
+</div>
