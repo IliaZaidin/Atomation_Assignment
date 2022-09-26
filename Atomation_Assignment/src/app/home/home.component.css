@@ -1,0 +1,23 @@
+.home {
+  @apply flex flex-col items-center w-screen;
+}
+
+.home__title {
+  @apply text-xl;
+}
+
+.home__search-form {
+  @apply flex gap-4;
+}
+
+.home__search-input {
+  @apply border-2 border-amber-900;
+}
+
+.home__search-submit {
+  @apply border-2 border-amber-900;
+}
+
+.home__search-result {
+  @apply flex flex-row flex-wrap w-screen justify-evenly;
+}

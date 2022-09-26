@@ -1,0 +1,11 @@
+.brewery-item {
+  @apply flex flex-col items-center border-black border-2;
+}
+
+.brewery-item__button {
+  @apply cursor-pointer text-4xl;
+}
+
+.brewery-item__image {
+  @apply p-0 h-8 w-8 bg-[url('src\images\beer-logo.png')] bg-contain;
+}

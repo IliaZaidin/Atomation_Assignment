@@ -1,0 +1,14 @@
+<form class="loginPage__form" (submit)="handleSubmit($event)">
+  <h1 class="loginPage__title">Please login</h1>
+
+  <label for="userName">User Name </label>
+  <input class="loginPage__input_name" type="text" id="userName" minlength="2" pattern="[A-Za-z]+" (input)="handleNameInput($event)" required>
+
+  <label for="userEmail">User Email </label>
+  <input class="loginPage__input_email" type="email" id="userEmail" (input)="handleEmailInput($event)" required>
+
+  <label for="userPassword">User Password </label>
+  <input class="loginPage__input_password" type="password" id="userPassword" minlength="6" pattern="[A-Za-z0-9]+" (input)="handlePasswordInput($event)" required>
+
+  <button class="loginPage__submit" type="submit" [disabled]="isDisabled">Submit</button>
+</form>
