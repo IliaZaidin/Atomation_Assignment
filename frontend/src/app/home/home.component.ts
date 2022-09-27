@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { BreweryItem } from '../types/breweryItem';
 
 @Component({
@@ -13,7 +15,7 @@ export class HomeComponent implements OnInit {
   userName: string = '';
   searchInput: string = '';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   handleSearchInput(event: any) {
     this.searchInput = event.target.value;
@@ -41,28 +43,30 @@ export class HomeComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    if (localStorage.getItem('auth') !== null) {
+    if (localStorage.getItem('auth') === null) {
+      this.router.navigate(['', 'login']);
+    } else {
       this.userName = JSON.parse(localStorage.getItem('auth') || '').name;
-    }
 
-    (async () => {
-      try {
-        const res = await fetch(`https://api.openbrewerydb.org/breweries?&per_page=20`,
-        {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-        if (res.ok) {
-          this.breweries = await res.json();
-        } else {
-          const response = await Promise.reject(res);
-          console.log(response);
+      (async () => {
+        try {
+          const res = await fetch(`https://api.openbrewerydb.org/breweries?&per_page=20`,
+          {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+          if (res.ok) {
+            this.breweries = await res.json();
+          } else {
+            const response = await Promise.reject(res);
+            console.log(response);
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
-      }
-    })();
+      })();
+    }
   }
 }

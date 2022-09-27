@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BreweryItem } from '../types/breweryItem';
 
 @Component({
@@ -10,10 +11,12 @@ export class WishlistComponent implements OnInit {
 
   myBreweries: BreweryItem[] = [];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('wishlist') !== null) {
+    if (localStorage.getItem('auth') === null) {
+      this.router.navigate(['wishlist', 'login']);
+    } else {
       this.myBreweries = JSON.parse(localStorage.getItem('wishlist') || '');
     }
   }

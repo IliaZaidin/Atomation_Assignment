@@ -31,14 +31,14 @@ export class LoginComponent implements OnInit {
   }
 
   handleSubmit(event: any) {
-    event.preventDefault();
-    if (localStorage.getItem('auth') === null) {
-      localStorage.setItem('auth', JSON.stringify(this.userAuth));
-    }
-    this.router.navigate(['/login', '/']);
+    localStorage.setItem('auth', JSON.stringify(this.userAuth));
+    this.router.navigate(['login', '']);
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem('auth') !== null) {
+      this.router.navigate(['login', '']);
+    }
   }
 
 }

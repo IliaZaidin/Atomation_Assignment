@@ -1,5 +1,5 @@
 .loginPage__form {
-  @apply flex flex-col items-center justify-center h-screen;
+  @apply flex flex-col items-center justify-center h-screen gap-y-4;
 }
 
 .loginPage__title {
