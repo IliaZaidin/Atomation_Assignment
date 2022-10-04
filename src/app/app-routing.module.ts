@@ -6,7 +6,7 @@ import { WishlistComponent } from "./wishlist/wishlist.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'wishlist', component: WishlistComponent},
+  {path: 'wishlist', component: WishlistComponent, pathMatch: 'full'},
   {path: '', component: HomeComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'},
 ];
