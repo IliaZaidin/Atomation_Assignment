@@ -6,9 +6,9 @@ import { WishlistComponent } from "./wishlist/wishlist.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'wishlist', component: WishlistComponent, pathMatch: 'full'},
+  {path: 'wishlist', component: WishlistComponent},
   {path: '', component: HomeComponent},
-  {path: '**', redirectTo: '', pathMatch: 'full'},
+  // {path: '**', redirectTo: '', pathMatch: 'full'},
 ];
 
 @NgModule({
