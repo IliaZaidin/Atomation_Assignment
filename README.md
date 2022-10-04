@@ -1,4 +1,5 @@
-# Frontend
+# Atomation Assignment
+## [Link to project page](https://iliazaidin.github.io/Atomation_Assignment/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
